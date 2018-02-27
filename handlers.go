@@ -21,9 +21,25 @@ var indexHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request)
 	// 	fmt.Printf("%v", err)
 	// 	return
 	// }
-	tpl, _ := template.New("").Delims("[[", "]]").ParseFiles("./views/layout.html")
+	tpl, _ := template.New("").Delims("[[", "]]").ParseFiles("./views/index.html")
 	//temp, _ := tpl.Parse(tplfile)
-	tpl.ExecuteTemplate(w, "layout.html", nil)
+	tpl.ExecuteTemplate(w, "index.html", nil)
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	return
+})
+
+var loginHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+
+	tpl, _ := template.New("").Delims("[[", "]]").ParseFiles("./views/login.html")
+	tpl.ExecuteTemplate(w, "login.html", nil)
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	return
+})
+
+var registerHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+
+	tpl, _ := template.New("").Delims("[[", "]]").ParseFiles("./views/register.html")
+	tpl.ExecuteTemplate(w, "register.html", nil)
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	return
 })

@@ -22,6 +22,22 @@ var routes = Routes{
 		"/octane/main",
 		authMiddleware(indexHandler),
 	},
+	//Login Page
+	///unAuthenticated
+	Route{
+		"Index",
+		"GET",
+		"/octane/login",
+		loginHandler,
+	},
+	//Register Page
+	///unAuthenticated
+	Route{
+		"Index",
+		"GET",
+		"/octane/register",
+		registerHandler,
+	},
 	//HTML list of people
 	///Authenticated
 	Route{
