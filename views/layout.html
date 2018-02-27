@@ -104,7 +104,23 @@
                           </label> to upload.
                         </h3><small>Allowed file types: vcf, zip, doc, docx, xls, xlsx, gz and plaintext (txt)</small>
                       </div>
-                     
+                     <div class="row">
+                        <div class="col-sm-6 col-md-4 col-lg-3" ng-model="uploader.queue" ng-repeat="item in uploader.queue">
+                          <div class="file uploading"><i class="fa fa-file-text-o file-image" aria-hidden="true"></i>
+                            <h3>{{item.file.name}}</h3>
+                            <h5 class="file-size">{{item.file.size/1024/1024|number:2}} MB</h5>
+                            <div class="divider"></div>
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" ng-style="{'width': item.progress + '%'}"></div>
+                            </div><span class="error-msg" ng-show="item.isCancel"> <i class="fa fa-exclamation-circle" aria-hidden="true">| File upload cancelled. </i></span><span class="error-msg" ng-show="item.isError &amp;&amp; !item.isTimeout"> <i class="fa fa-exclamation-circle" aria-hidden="true"> </i>
+                              <Error>while uploading.</Error></span><span class="error-msg" ng-show="item.fileExists"> <i class="fa fa-exclamation-circle" aria-hidden="true"> </i>File with this name already exists. </span><span class="error-msg" ng-show="item.isTimeout &amp;&amp; !item.isCancel &amp;&amp; !item.fileExists"> <i class="fa fa-exclamation-circle" aria-hidden="true"> </i>Refresh page and re-upload. </span><span class="success-msg" ng-show="item.isSuccess"><i class="fa fa-check-circle" aria-hidden="true"></i>Completed</span>
+                            <div class="file-options" ng-click="item.remove();"><i class="fa fa-trash" aria-hidden="true"></i>
+                              <h5>Delete</h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                     </div> 
         </div>
     </div>
