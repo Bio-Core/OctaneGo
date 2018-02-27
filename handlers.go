@@ -50,16 +50,10 @@ func handleLogin(w http.ResponseWriter, r *http.Request) {
 	return
 }
 
-//handleLoginCallback is a fuction that verifies login success and forwards to index
-func handleLoginCallback(w http.ResponseWriter, r *http.Request) {
-	keycloak.HandleLoginCallback(w, r)
-	return
-}
-
 //authMiddleware is a middlefuntion that verifies authentication before each redirect
 func authMiddleware(next http.HandlerFunc) http.HandlerFunc {
-	//return keycloak.AuthMiddleware(next)
-	return next
+	return keycloak.AuthMiddleware(next)
+	//return next
 }
 
 //logout logs the user out

@@ -36,15 +36,7 @@ var routes = Routes{
 		"handleLogin",
 		"GET",
 		"/octane",
-		handleLogin,
-	},
-	//Login helper
-	//Authenticated
-	Route{
-		"handleLoginCallback",
-		"GET",
-		"/loginCallback",
-		handleLoginCallback,
+		authMiddleware(handleLogin),
 	},
 	//Logout, redirects to login
 	///Unauthenticatec

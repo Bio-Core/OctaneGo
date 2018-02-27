@@ -77,10 +77,10 @@ app.controller('MainCtrl', ['$scope','$timeout', 'FileUploader', function($scope
     };
 
     uploader.onSuccessItem = function(fileItem, response, status, headers) {
-        //console.info('onSuccessItem', fileItem, response, status, headers);
+        console.info('onSuccessItem', fileItem, response, status, headers);
     };
     uploader.onErrorItem = function(fileItem, response, status, headers) {
-        //console.info('onErrorItem', fileItem, response, status, headers);
+        console.info('onErrorItem', fileItem, response, status, headers);
     };
     uploader.onCancelItem = function(fileItem, response, status, headers) {
         //console.info('onCancelItem', fileItem, response, status, headers);

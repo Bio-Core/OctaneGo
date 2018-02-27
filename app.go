@@ -21,14 +21,12 @@ var goTest bool // true if unit tests are running
 func main() {
 	flag.StringVar(&localport, "p", "3000", "Specify which port to use")
 	flag.StringVar(&localhost, "host", "localhost", "Specify the name of the host")
-	flag.StringVar(&keycloakhost, "keycloakh", "localhost", "Specify the name of the keycloak host")
-	flag.StringVar(&keycloakport, "keycloakp", "8080", "Specify the port of keycloak")
 	flag.Parse()
 
-	//server = "http://" + localhost + ":" + localport
-	//keycloakserver = "http://" + keycloakhost + ":" + keycloakport
+	server = "http://" + localhost + ":" + localport
+	keycloakserver = "https://ga4gh.pmgenomics.ca"
 
-	//addKeycloak(keycloakserver, server)
+	addKeycloak(keycloakserver, server)
 
 	router := NewRouter()
 	//Stats hosting on the constant port
@@ -36,5 +34,5 @@ func main() {
 }
 
 func addKeycloak(keycloakserver, server string) {
-	keycloak.Init(keycloakserver, server)
+	keycloak.Init(keycloakserver, server, "/octane/main", "/octane/logout")
 }
