@@ -26,7 +26,7 @@ var routes = Routes{
 	///Authenticated
 	Route{
 		"Upload",
-		"GET",
+		"POST",
 		"/octane/upload",
 		authMiddleware(uploadHandler),
 	},
@@ -51,7 +51,7 @@ var routes = Routes{
 	Route{
 		"logout",
 		"GET",
-		"/logout",
+		"/octane/logout",
 		logout,
 	},
 }

@@ -7,7 +7,8 @@
   },
   "author": "Hernando Castano",
   "dependencies": {
-    "angular": "^1.5.6",
+    "angular": "^1.6.9",
+    "angular-file-upload": "^2.5.0",
     "bcryptjs": "*",
     "body-parser": "~1.13.2",
     "bower": "^1.7.9",
@@ -22,6 +23,8 @@
     "express-validator": "*",
     "fs-extra": "^0.30.0",
     "jade": "~1.11.0",
+    "jsonwebtoken": "*",
+    "keycloak-connect": "*",
     "mongodb": "*",
     "mongoose": "*",
     "morgan": "~1.6.1",
@@ -31,8 +34,6 @@
     "passport-openidconnect": "0.0.1",
     "request": "^2.74.0",
     "serve-favicon": "~2.3.0",
-    "validator": "^5.4.0",
-    "keycloak-connect": "*",
-    "jsonwebtoken":"*"
+    "validator": "^5.4.0"
   }
 }

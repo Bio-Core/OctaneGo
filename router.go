@@ -7,14 +7,20 @@ import (
 )
 
 //StaticDir is the path to the static files hosted
-const StaticDir = "/static/"
+const StaticDir = "/public/"
+
+//AngDir is the path to the static files hosted
+const AngDir = "/node_modules/"
 
 //NewRouter creates a new router and maps all the routes defined in routes.go
 func NewRouter() *mux.Router {
 	router := mux.NewRouter().StrictSlash(true)
 	router.
-		PathPrefix(StaticDir).
-		Handler(http.StripPrefix(StaticDir, http.FileServer(http.Dir("."+StaticDir))))
+		PathPrefix("/octane" + StaticDir).
+		Handler(http.StripPrefix("/octane"+StaticDir, http.FileServer(http.Dir("."+StaticDir))))
+	router.
+		PathPrefix("/octane" + AngDir).
+		Handler(http.StripPrefix("/octane"+AngDir, http.FileServer(http.Dir("."+AngDir))))
 	for _, route := range routes {
 		var handler http.Handler
 		handler = route.HandlerFunc
