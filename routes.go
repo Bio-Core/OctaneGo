@@ -25,18 +25,26 @@ var routes = Routes{
 	//Login Page
 	///unAuthenticated
 	Route{
-		"Index",
+		"Login Page",
 		"GET",
-		"/octane/login",
+		"/octane/",
 		loginHandler,
 	},
 	//Register Page
 	///unAuthenticated
 	Route{
-		"Index",
+		"Register",
 		"GET",
 		"/octane/register",
 		registerHandler,
+	},
+	//Main Page
+	///unAuthenticated
+	Route{
+		"Main",
+		"GET",
+		"/",
+		mainHandler,
 	},
 	//HTML list of people
 	///Authenticated
@@ -51,7 +59,7 @@ var routes = Routes{
 	Route{
 		"handleLogin",
 		"GET",
-		"/octane",
+		"/octane/login",
 		authMiddleware(handleLogin),
 	},
 	//Logout, redirects to login

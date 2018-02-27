@@ -43,6 +43,13 @@ var registerHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Reque
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	return
 })
+var mainHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+
+	tpl, _ := template.New("").Delims("[[", "]]").ParseFiles("./views/main.html")
+	tpl.ExecuteTemplate(w, "main.html", nil)
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	return
+})
 
 var uploadHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	file, header, err := r.FormFile("file")
