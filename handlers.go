@@ -44,6 +44,11 @@ var errorHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request)
 	return
 })
 
+var faviconHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "public/images/octane-icon.png")
+	return
+})
+
 var uploadHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	file, header, err := r.FormFile("file")
 	useremail := keycloak.GetEmail()

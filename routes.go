@@ -22,6 +22,14 @@ var routes = Routes{
 		"/octane/main",
 		authMiddleware(indexHandler),
 	},
+	//Favicon
+	///Unauthenticated
+	Route{
+		"Index",
+		"GET",
+		"/octane/favicon.ico",
+		faviconHandler,
+	},
 	//Login Page
 	///unAuthenticated
 	Route{
