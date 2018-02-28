@@ -14,10 +14,13 @@
 .glide/
 
 # Any project logs that are added
-logs/*
+log/*
 
 # Any files that are uploaded
 uploads/*
 
 # debug files
 debug
+
+.vscode
+.DS_Store
