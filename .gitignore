@@ -12,3 +12,12 @@
 
 # Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
 .glide/
+
+# Any project logs that are added
+logs/*
+
+# Any files that are uploaded
+uploads/*
+
+# debug files
+debug
