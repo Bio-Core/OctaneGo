@@ -48,7 +48,7 @@ push: tag
 
 clean:
 	@test ! -e bin/${BIN_NAME} || rm bin/${BIN_NAME}
-	rm uploads/*
+	rm -r uploads/*
 
 test:
 	go test ./tests

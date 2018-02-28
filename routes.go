@@ -30,22 +30,6 @@ var routes = Routes{
 		"/octane/",
 		loginHandler,
 	},
-	//Register Page
-	///unAuthenticated
-	Route{
-		"Register",
-		"GET",
-		"/octane/register",
-		registerHandler,
-	},
-	//Main Page
-	///unAuthenticated
-	Route{
-		"Main",
-		"GET",
-		"/",
-		mainHandler,
-	},
 	//HTML list of people
 	///Authenticated
 	Route{

@@ -15,6 +15,8 @@ const AngDir = "/node_modules/"
 //NewRouter creates a new router and maps all the routes defined in routes.go
 func NewRouter() *mux.Router {
 	router := mux.NewRouter().StrictSlash(true)
+	router.NotFoundHandler = http.HandlerFunc(errorHandler)
+
 	router.
 		PathPrefix("/octane" + StaticDir).
 		Handler(http.StripPrefix("/octane"+StaticDir, http.FileServer(http.Dir("."+StaticDir))))

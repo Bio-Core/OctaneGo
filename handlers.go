@@ -36,28 +36,26 @@ var loginHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request)
 	return
 })
 
-var registerHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+var errorHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
-	tpl, _ := template.New("").Delims("[[", "]]").ParseFiles("./views/register.html")
-	tpl.ExecuteTemplate(w, "register.html", nil)
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	return
-})
-var mainHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-
-	tpl, _ := template.New("").Delims("[[", "]]").ParseFiles("./views/main.html")
-	tpl.ExecuteTemplate(w, "main.html", nil)
+	tpl, _ := template.New("").Delims("[[", "]]").ParseFiles("./views/error.html")
+	tpl.ExecuteTemplate(w, "error.html", nil)
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	return
 })
 
 var uploadHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	file, header, err := r.FormFile("file")
-	if _, err := os.Stat("./uploads/" + header.Filename); !os.IsNotExist(err) {
+	useremail := keycloak.GetEmail()
+	useremail = fmt.Sprintf("%x", useremail)
+	if _, err := os.Stat("./uploads/" + useremail + "/" + header.Filename); !os.IsNotExist(err) {
 		w.WriteHeader(409)
 		return
 	}
-	f, err := os.OpenFile("./uploads/"+header.Filename, os.O_WRONLY|os.O_CREATE, 0666)
+	if _, err := os.Stat("./uploads/" + useremail); os.IsNotExist(err) {
+		os.Mkdir("./uploads/"+useremail, os.ModePerm)
+	}
+	f, err := os.OpenFile("./uploads/"+useremail+"/"+header.Filename, os.O_WRONLY|os.O_CREATE, 0666)
 	if err != nil {
 		fmt.Println(err)
 	}
