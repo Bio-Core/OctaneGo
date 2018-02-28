@@ -77,10 +77,10 @@ app.controller('MainCtrl', ['$scope','$timeout', 'FileUploader', function($scope
     };
 
     uploader.onSuccessItem = function(fileItem, response, status, headers) {
-        console.info('onSuccessItem', fileItem, response, status, headers);
+        //console.info('onSuccessItem:responce', response,'status', status);
     };
     uploader.onErrorItem = function(fileItem, response, status, headers) {
-        console.info('onErrorItem', fileItem, response, status, headers);
+        //console.info('onErrorItem', fileItem, response, status, headers);
     };
     uploader.onCancelItem = function(fileItem, response, status, headers) {
         //console.info('onCancelItem', fileItem, response, status, headers);
@@ -95,15 +95,18 @@ app.controller('MainCtrl', ['$scope','$timeout', 'FileUploader', function($scope
         completedItems[completeItemIndex].className = "file";
 
         // Checks if file already exists
-        if (!(response == '')) {
-            var el = document.createElement( 'html' );
-            el.innerHTML = response;
-            var errorMessage = errorMessage = JSON.stringify(el.getElementsByTagName( 'pre' )[0].innerHTML.split('\n')[0]);            
-            if (errorMessage == '"Error: fileExists"') {
-                fileItem.fileExists = true;
-            } else {
-                fileItem.fileExists = false;
-            }            
+        // if (!(status == '')) {
+        //     var el = document.createElement( 'html' );
+        //     el.innerHTML = response;
+        //     var errorMessage = errorMessage = JSON.stringify(el.getElementsByTagName( 'pre' )[0].innerHTML.split('\n')[0]);            
+        //     if (errorMessage == '"Error: fileExists"') {
+        //         fileItem.fileExists = true;
+        //     } else {
+        //         fileItem.fileExists = false;
+        //     }            
+        // }
+        if (status == 409){
+            fileItem.fileExists = true;
         }
 
         // Shows error if session has expired. Right now if this happens the user

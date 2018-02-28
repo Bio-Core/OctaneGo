@@ -54,7 +54,8 @@ var mainHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) 
 var uploadHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	file, header, err := r.FormFile("file")
 	if _, err := os.Stat("./uploads/" + header.Filename); !os.IsNotExist(err) {
-		fmt.Println("File already exists")
+		w.WriteHeader(409)
+		return
 	}
 	f, err := os.OpenFile("./uploads/"+header.Filename, os.O_WRONLY|os.O_CREATE, 0666)
 	if err != nil {
