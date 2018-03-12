@@ -6,7 +6,7 @@ app.controller('MainCtrl', ['$scope','$timeout', 'FileUploader', function($scope
     // Check out the index.js router to see how the 
     // file upload is handled on the back end 
 	uploader = $scope.uploader = new FileUploader({
-		url: '/octane/upload'
+		url: '/octanego/upload'
 	}); 
 
 	uploader.filters.push({

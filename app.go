@@ -34,5 +34,5 @@ func main() {
 }
 
 func addKeycloak(keycloakserver, server string) {
-	keycloak.Init(keycloakserver, server, "/octane/main", "/octane/logout")
+	keycloak.Init(keycloakserver, "https://ga4gh.pmgenomics.ca", "/octanego/main", "/octanego/logout")
 }
