@@ -1,6 +1,6 @@
 .PHONY: build clean test help default 
 
-BIN_NAME=OctaneGo
+BIN_NAME=octanego
 
 VERSION := $(shell grep "const Version " version/version.go | sed -E 's/.*"(.+)"$$/\1/')
 GIT_COMMIT=$(shell git rev-parse HEAD)
