@@ -18,11 +18,11 @@ func NewRouter() *mux.Router {
 	router.NotFoundHandler = http.HandlerFunc(errorHandler)
 
 	router.
-		PathPrefix("/octane" + StaticDir).
-		Handler(http.StripPrefix("/octane"+StaticDir, http.FileServer(http.Dir("."+StaticDir))))
+		PathPrefix("/octanego" + StaticDir).
+		Handler(http.StripPrefix("/octanego"+StaticDir, http.FileServer(http.Dir("."+StaticDir))))
 	router.
-		PathPrefix("/octane" + AngDir).
-		Handler(http.StripPrefix("/octane"+AngDir, http.FileServer(http.Dir("."+AngDir))))
+		PathPrefix("/octanego" + AngDir).
+		Handler(http.StripPrefix("/octanego"+AngDir, http.FileServer(http.Dir("."+AngDir))))
 	for _, route := range routes {
 		var handler http.Handler
 		handler = route.HandlerFunc
