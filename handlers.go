@@ -68,7 +68,7 @@ var uploadHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request
 	if err != nil {
 		fmt.Println(err)
 	}
-	keycloak.LogAction(keycloak.UploadFileAction, header.Filename)
+	//keycloak.LogAction(keycloak.UploadFileAction, header.Filename)
 	return
 })
 
