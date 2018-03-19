@@ -8,6 +8,7 @@ import (
 	"os"
 
 	keycloak "github.com/Bio-core/keycloakgo"
+	"golang.org/x/oauth2"
 )
 
 //Global vairable definitions
@@ -51,7 +52,16 @@ var faviconHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Reques
 
 var uploadHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	file, header, err := r.FormFile("file")
-	useremail := keycloak.GetEmail()
+	cookie, err := r.Cookie("token")
+	var pre oauth2.Token
+	if err == nil {
+		pre = oauth2.Token{
+			AccessToken: cookie.Value,
+		}
+	} else {
+		return
+	}
+	useremail := keycloak.GetEmail(pre.AccessToken)
 	useremail = fmt.Sprintf("%x", useremail)
 	if _, err := os.Stat("./uploads/" + useremail + "/" + header.Filename); !os.IsNotExist(err) {
 		w.WriteHeader(409)
@@ -68,7 +78,7 @@ var uploadHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request
 	if err != nil {
 		fmt.Println(err)
 	}
-	keycloak.LogAction(keycloak.UploadFileAction, header.Filename)
+	keycloak.LogAction(keycloak.UploadFileAction, header.Filename, pre.AccessToken)
 	return
 })
 
