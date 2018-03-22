@@ -24,7 +24,7 @@ func main() {
 	flag.Parse()
 
 	server = "http://" + localhost + ":" + localport
-	keycloakserver = "https://ga4gh.pmgenomics.ca"
+	keycloakserver = "https://oa.pmgenomics.ca"
 
 	addKeycloak(keycloakserver, server)
 
