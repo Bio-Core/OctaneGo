@@ -19,7 +19,7 @@ var routes = Routes{
 	Route{
 		"Index",
 		"GET",
-		"/octanego/main",
+		"/octane/main",
 		authMiddleware(indexHandler),
 	},
 	//Favicon
@@ -27,7 +27,7 @@ var routes = Routes{
 	Route{
 		"Index",
 		"GET",
-		"/octanego/favicon.ico",
+		"/octane/favicon.ico",
 		faviconHandler,
 	},
 	//Login Page
@@ -35,7 +35,7 @@ var routes = Routes{
 	Route{
 		"Login Page",
 		"GET",
-		"/octanego/",
+		"/octane/",
 		loginHandler,
 	},
 	//HTML list of people
@@ -43,7 +43,7 @@ var routes = Routes{
 	Route{
 		"Upload",
 		"POST",
-		"/octanego/upload",
+		"/octane/upload",
 		authMiddleware(uploadHandler),
 	},
 	//Login page
@@ -51,7 +51,7 @@ var routes = Routes{
 	Route{
 		"handleLogin",
 		"GET",
-		"/octanego/login",
+		"/octane/login",
 		authMiddleware(handleLogin),
 	},
 	//Logout, redirects to login
@@ -59,7 +59,7 @@ var routes = Routes{
 	Route{
 		"logout",
 		"GET",
-		"/octanego/logout",
+		"/octane/logout",
 		logout,
 	},
 }

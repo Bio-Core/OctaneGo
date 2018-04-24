@@ -24,7 +24,7 @@ func main() {
 	flag.Parse()
 
 	server = "http://" + localhost + ":" + localport
-	keycloakserver = "https://ga4gh.pmgenomics.ca"
+	keycloakserver = "https://oa.pmgenomics.ca"
 
 	addKeycloak(keycloakserver, server)
 
@@ -34,6 +34,6 @@ func main() {
 }
 
 func addKeycloak(keycloakserver, server string) {
-	keycloak.Init(keycloakserver, "https://www.pmgenomics.ca", "/octanego/main", "/octanego/logout")
-	//keycloak.Init(keycloakserver, "http://127.0.0.1:3000", "/octanego/main", "/octanego/logout")
+	keycloak.Init(keycloakserver, "https://www.pmgenomics.ca", "/octane/main", "/octane/logout")
+	//keycloak.Init(keycloakserver, "http://127.0.0.1:3000", "/octane/main", "/octane/logout")
 }

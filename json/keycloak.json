@@ -1,11 +1,10 @@
 {
   "realm": "UHN",
-  "auth-server-url": "https://ga4gh.pmgenomics.ca/auth",
+  "auth-server-url": "https://oa.pmgenomics.ca/auth",
   "ssl-required": "external",
   "resource": "octane",
   "credentials": {
-    "secret": "f6bff6f2-12c7-46cd-ad32-a1d2212642b3"
+    "secret": "fdfc728b-5120-4943-a7bb-1adb69cd1ba9"
   },
-  "use-resource-role-mappings": true,
-  "confidential-port": 0
+  "use-resource-role-mappings": true
 }
