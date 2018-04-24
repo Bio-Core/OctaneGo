@@ -115,9 +115,6 @@
                               <div class="progress-bar" role="progressbar" ng-style="{'width': item.progress + '%'}"></div>
                             </div><span class="error-msg" ng-show="item.isCancel"> <i class="fa fa-exclamation-circle" aria-hidden="true">| File upload cancelled. </i></span><span class="error-msg" ng-show="item.isError &amp;&amp; !item.isTimeout"> <i class="fa fa-exclamation-circle" aria-hidden="true"> </i>
                               <Error>while uploading.</Error></span><span class="error-msg" ng-show="item.fileExists"> <i class="fa fa-exclamation-circle" aria-hidden="true"> </i>File with this name already exists. </span><span class="success-msg" ng-show="item.isSuccess"><i class="fa fa-check-circle" aria-hidden="true"></i>Completed</span>
-                            <div class="file-options" ng-click="item.remove();"><i class="fa fa-trash" aria-hidden="true"></i>
-                              <h5>Delete</h5>
-                            </div>
                           </div>
                         </div>
                       </div>
